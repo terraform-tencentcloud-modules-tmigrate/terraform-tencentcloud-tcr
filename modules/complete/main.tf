@@ -55,9 +55,9 @@ resource "tencentcloud_tcr_namespace" "namespaces" {
   instance_id    = local.tcr_id
   name           = try(each.value.name, each.key)
   is_public      = try(each.value.is_public, false)
-  is_auto_scan   = try(each.value.is_auto_scan, false)
-  is_prevent_vul = try(each.value.is_prevent_vul, false)
-  severity       = try(each.value.severity, "medium")  // Block vulnerability level, currently only supports low, medium, high.
+  is_auto_scan   = try(each.value.is_auto_scan, null)
+  is_prevent_vul = try(each.value.is_prevent_vul, null)
+  severity       = try(each.value.severity, null) // "medium" // Block vulnerability level, currently only supports low, medium, high.
   dynamic "cve_whitelist_items" {
     for_each = try(each.value.cve_whitelist_items, [])
     content {
