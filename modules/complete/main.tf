@@ -28,6 +28,7 @@ resource "tencentcloud_tcr_instance" "foo" {
       cidr_block = security_policy.value.cidr_block
     }
   }
+  tags = var.tags
 }
 
 resource "tencentcloud_tcr_vpc_attachment" "foo" {
