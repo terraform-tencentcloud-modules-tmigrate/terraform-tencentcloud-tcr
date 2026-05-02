@@ -85,3 +85,8 @@ variable "service_accounts" {
   default = {}
   description = "service_account map, see `tencentcloud_tcr_service_account`"
 }
+
+variable "tags" {
+  type = map(string)
+  default = {}
+}
